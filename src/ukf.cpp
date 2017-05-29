@@ -24,11 +24,11 @@ UKF::UKF() {
   // initial covariance matrix
   P_ = MatrixXd(5, 5);
 
-  // Process noise standard deviation longitudinal acceleration in m/s^2
+  // Process noise standard deviation longitudinal acceleration in m/s.s
   std_a_ = 3; // -3sigma to +3 sigma would cover 1g acc/deceleration
 
-  // Process noise standard deviation yaw acceleration in rad/s^2
-  std_yawdd_ = 0.34; //Should cover turns upto 60°/s
+  // Process noise standard deviation yaw acceleration in rad/s.s
+  std_yawdd_ = 0.34; //Should cover turns upto 60degree/s
 
   // Laser measurement noise standard deviation position1 in m
   std_laspx_ = 0.15;
@@ -357,7 +357,7 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
 	S = S + R;
 
 	/*
-		CALCULATE CROSS CORRELEÀTION
+		CALCULATE CROSS CORRELATION
 	*/
 
 	//create matrix for cross correlation Tc
@@ -469,7 +469,7 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 	S = S + R;
 
 	/*
-		CALCULATE CROSS CORRELEÀTION
+		CALCULATE CROSS CORRELATION
 	*/
 
 	//create matrix for cross correlation Tc
